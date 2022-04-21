@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
-class Users extends BaseController
+class User extends BaseController
 
 {
     protected $userModel;
@@ -19,14 +19,14 @@ class Users extends BaseController
     {
         // $list = $this->usermodel->findAll();
 
-        // d($this->request->getVar('keyword'));
-        $keyword = $this->request->getVar('keyword');
+        d($this->request->getVar('keyword'));
+        // $keyword = $this->request->getVar('keyword');
 
-        if ($keyword) {
-            $user = $this->userModel->search($keyword);
-        } else {
-            $user = $this->userModel;
-        }
+        // if ($keyword) {
+        //     $orang = $this->userModel->search($keyword);
+        // } else {
+        //     $orang = $this->userModel;
+        // }
 
         $data = [
             'title' => 'Perpusku | Users',

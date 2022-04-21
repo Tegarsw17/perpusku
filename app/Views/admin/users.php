@@ -6,7 +6,7 @@
     <h1>Users</h1>
     <form action="" method="post">
         <div class="input-group mb-3 col-3">
-            <input type="text" class="form-control" placeholder="Search" name="keyword">
+            <input type="text" class="form-control" placeholder="Masukkan Id/Nama/Alamat..." name="keyword">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="submit" name="submit">Find</button>
             </div>
