@@ -47,4 +47,13 @@ class UserModel extends Model
         }
         return $this->where(['id' => $id])->first();
     }
+
+    public function search($keyword)
+    {
+        // $builder = $this->table('users');
+        // $builder->like('username', $keyword);
+        // return $builder;
+
+        return $this->table('users')->like('alamat', $keyword)->orLike('nama', $keyword);
+    }
 }
