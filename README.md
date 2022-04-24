@@ -18,7 +18,9 @@ Feature in user page there :
 
 ### Coming soon:
 
-- Edit user
+- Create User
+- Edit User
+- Delete User
 - etc
 
 ## Daftar Buku Page
