@@ -17,10 +17,11 @@ Feature in user page there :
 - Search
 - Pagination
 - Detail of user<br>
+- Create User
 
 ### Coming soon:
 
-- Create User
+- Validation Input
 - Edit User
 - Delete User
 - etc
