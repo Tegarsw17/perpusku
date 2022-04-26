@@ -9,49 +9,61 @@
             <div class="form-group row">
                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" name="username" autofocus>
+                    <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" autofocus value="<?= old('username'); ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('username'); ?>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nama" name="nama">
+                    <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" value="<?= old('nama'); ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('nama'); ?>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email">
+                    <input type="text" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" value="<?= old('email'); ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('email'); ?>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('password'); ?>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="alamat" name="alamat">
+                    <input type="text" class="form-control" id="alamat" name="alamat" value="<?= old('username'); ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="telepon" class="col-sm-2 col-form-label">Nomor Telepon</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="telepon" name="telepon">
+                    <input type="text" class="form-control" id="telepon" name="telepon" value="<?= old('username'); ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= old('username'); ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="tanggal_lahir" class="col-2 col-form-label">Tanggal Lahir</label>
                 <div class="input-group col-sm-10">
-                    <input type="text" class="form-control" id="datepick" name="tanggal_lahir">
+                    <input type="text" class="form-control" id="datepick" name="tanggal_lahir" value="<?= old('username'); ?>">
                 </div>
             </div>
             <div class="form-group row">

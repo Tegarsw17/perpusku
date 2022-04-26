@@ -61,9 +61,11 @@ class User extends BaseController
 
     public function create()
     {
+        // session();
         $data = [
             'title' => 'Perpusku | Tambah Data User',
             'nav' => 'user',
+            'validation' => \Config\Services::validation()
         ];
         // d($this->request->getVar(''));
 
@@ -72,6 +74,40 @@ class User extends BaseController
 
     public function save()
     {
+        //validation
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required|is_unique[users.username]',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah ada'
+                ]
+            ],
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'email' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+            'password' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                ]
+            ],
+
+        ])) {
+            $validation = \Config\Services::validation();
+            // dd($validation);
+            return redirect()->to('/user/create')->withInput()->with('validation', $validation);
+        }
+
         // dd($this->request->getVar());
         $this->usermodel->save([
             'username' => $this->request->getVar('username'),
