@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-datepicker.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -72,6 +73,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/bootstrap/js/sb-admin-2.min.js"></script>
+    <script src="/bootstrap/js/bootstrap-datepicker.js"></script>
 
     <!-- Page level plugins -->
     <script src="/bootstrap/vendor/chart.js/Chart.min.js"></script>
@@ -79,6 +81,20 @@
     <!-- Page level custom scripts -->
     <script src="/bootstrap/js/demo/chart-area-demo.js"></script>
     <script src="/bootstrap/js/demo/chart-pie-demo.js"></script>
+
+    <!-- My Script -->
+    <script src="/script.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('#datepick').datepicker({
+                'format': 'yyyy-mm-dd',
+                'autoclose': true
+            });
+        });
+    </script>
+
+
 
 </body>
 

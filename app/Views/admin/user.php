@@ -2,16 +2,33 @@
 
 <?= $this->section('content'); ?>
 <!-- Begin Page Content -->
-<div class="container-fluid ">
+<div class="container-fluid">
     <h1>Users</h1>
-    <form action="" method="post">
-        <div class="input-group mb-3 col-3">
-            <input type="text" class="form-control" placeholder="Masukkan Id/Nama/Alamat..." name="keyword">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit" name="submit">Find</button>
-            </div>
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-    </form>
+    <?php endif; ?>
+    <div class="row">
+        <div class="col-4">
+            <form action="" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Masukkan Id/Nama/Alamat..." name="keyword">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" name="submit">Find</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col text-right">
+            <a href="/user/create" class="btn btn-primary mb-3">
+                <i class="fas fa-fw fa-plus"></i>
+                <span>Tambah Data User</span></a>
+        </div>
+    </div>
     <table class="table">
         <thead class="thead-dark">
             <tr>

@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/user', 'User::index');
+$routes->get('/user/create', 'User::create');
 $routes->get('user/(:segment)', 'User::detail/$1');
 $routes->get('/daftar-buku', 'Bookcollection::index');
 

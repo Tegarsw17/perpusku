@@ -50,7 +50,45 @@ class User extends BaseController
             'nav' => 'user',
             'user' => $this->usermodel->getUser($id),
         ];
+
+        if (empty($data['user'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('User Tidak Ditemukan');
+        }
+
         // dd($data);
         return view('admin/detail', $data);
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Perpusku | Tambah Data User',
+            'nav' => 'user',
+        ];
+        // d($this->request->getVar(''));
+
+        return view('admin/create', $data);
+    }
+
+    public function save()
+    {
+        // dd($this->request->getVar());
+        $this->usermodel->save([
+            'username' => $this->request->getVar('username'),
+            'nama' => $this->request->getVar('nama'),
+            'email' => $this->request->getVar('email'),
+            'password' => $this->request->getVar('password'),
+            'alamat' => $this->request->getVar('alamat'),
+            'telepon' => $this->request->getVar('telepon'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
+            'avatar' => $this->request->getVar('avatar'),
+            'jenis_kelamin_' => $this->request->getVar('jenis_kelamin_'),
+
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
+
+        return redirect()->to('/user');
     }
 }
