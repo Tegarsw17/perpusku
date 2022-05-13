@@ -33,7 +33,7 @@ class User extends BaseController
             'title' => 'Perpusku | Users',
             'nav' => 'user',
             // 'list' => $orang->getUser(),
-            'list' => $this->usermodel->paginate(5, 'user'),
+            'list' => $orang->paginate(5, 'user'),
             'pager' => $this->usermodel->pager,
             'currentpage' => $currentPage,
         ];
@@ -101,6 +101,10 @@ class User extends BaseController
                     'required' => '{field} harus diisi',
                 ]
             ],
+            'avatar' => [
+                'rules' => 'max_size[avatar,1024]|is_image[avatar]|mime_in[avatar,image/jpg,image/jpeg,image/png]',
+                'errors' => []
+            ],
 
         ])) {
             $validation = \Config\Services::validation();
@@ -108,17 +112,29 @@ class User extends BaseController
             return redirect()->to('/user/create')->withInput()->with('validation', $validation);
         }
 
+        // $hashPassword = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+
+        // dd($this->request->getFile('avatar')->getName());
+        if ($this->request->getFile('avatar')->getName() != '') {
+            $avatar = $this->request->getFile('avatar');
+            $namaavatar = $avatar->getRandomName();
+            $avatar->move(ROOTPATH . 'public/img/', $namaavatar);
+        } else {
+            $namaavatar = 'default.jpg';
+        }
+
+
         // dd($this->request->getVar());
         $this->usermodel->save([
             'username' => $this->request->getVar('username'),
             'nama' => $this->request->getVar('nama'),
             'email' => $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
+            'password' => sha1($this->request->getVar('password')),
             'alamat' => $this->request->getVar('alamat'),
             'telepon' => $this->request->getVar('telepon'),
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
-            'avatar' => $this->request->getVar('avatar'),
+            'avatar' => $namaavatar,
             'jenis_kelamin_' => $this->request->getVar('jenis_kelamin_'),
 
         ]);

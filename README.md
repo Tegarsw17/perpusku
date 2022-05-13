@@ -18,10 +18,10 @@ Feature in user page there :
 - Pagination
 - Detail of user<br>
 - Create User
+- Validation Input
 
 ### Coming soon:
 
-- Validation Input
 - Edit User
 - Delete User
 - etc

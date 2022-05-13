@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <td class="font-weight-bold">Tempat/Tanggal Lahir</td>
-                        <td><?= ucfirst($user['tempat_lahir']); ?>, <?= $user['tanggal_lahir']; ?></td>
+                        <td><?= ucfirst($user['tempat_lahir']); ?>, <?php echo date("d-m-Y", strtotime($user['tanggal_lahir'])); ?></td>
                     </tr>
                     <tr>
                         <td class="font-weight-bold">Telepon</td>

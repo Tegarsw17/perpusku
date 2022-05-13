@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <h1 class="mb-3">Form Tambah Data</h1>
     <div class="col-6">
-        <form action="/user/save" method="post">
+        <form action="/user/save" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="form-group row">
                 <label for="username" class="col-sm-2 col-form-label">Username</label>
@@ -67,18 +67,18 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="avatar" class="col-sm-2 col-form-label">Foto</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="avatar" name="avatar">
-                </div>
-            </div>
-            <div class="form-group row">
                 <label for="jenis_kelamin_" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="jenis_kelamin_" name="jenis_kelamin_">
                         <option>laki-laki</option>
                         <option>perempuan</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="avatar" class="col-sm-2 col-form-label">Foto</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control-file" id="avatar" name="avatar">
                 </div>
             </div>
             <div class="form-group row">
